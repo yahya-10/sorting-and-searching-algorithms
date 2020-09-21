@@ -1,0 +1,45 @@
+FUNCTION sorting_initial_cards(C,n) : return_integer
+VAR
+    C : ARRAY OF INTEGERS AND CHARACTERS [];
+    i,j: INTEGER :=0;
+    temp,n : INTEGER;
+BEGIN
+    FOR i FROM 1 TO n-1 STEP 1  DO
+        temp = C[i];
+        j = i;
+        WHILE (j > 0 AND C[j-1] > temp) DO
+            C[j] = C[j-1]
+            j = j-1;
+        END_WHILE
+        C[j] = temp;
+    END FOR
+    return_integer
+END
+
+PROCEDURE add_new_element(C,n)
+VAR
+    C : ARRAY OF INTEGERS AND CHARACTERS [];
+    i: INTEGER :=0;
+    key,n : INTEGER;
+BEGIN
+    FOR i=n-1 FROM i>=0 TO C[i]>key STEP 1  DO
+        C[i+1] = C[i];
+        
+        C[i+1] = key
+    END_FOR
+END
+
+ALGORITHM sorting_cards
+VAR
+    C : ARRAY OF INTEGERS AND CHARACTERS [];
+    i , n : INTEGER :=0; 
+BEGIN
+    read (C)
+//calling the insertion sorting function
+    sorting_initial_cards(C,n)
+    write (C)
+//in case of adding a new card to the previous group of cards
+//we call the add_new_element procedure to place the new element in its proper position
+    add new element(C,n)
+    write(C)
+END
